@@ -31,6 +31,8 @@ namespace BookListRazor
                                 .UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))  // Name given in appsetting.json
                 );
 
+            services.AddControllersWithViews();
+
             services
                 .AddRazorPages()
                 .AddRazorRuntimeCompilation(); // so that we can edit view while running the application
@@ -59,6 +61,7 @@ namespace BookListRazor
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapRazorPages();
             });
         }
